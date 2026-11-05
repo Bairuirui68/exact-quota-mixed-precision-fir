@@ -59,9 +59,24 @@ E & $[16,32,16]$ & $8.68\!\cdot\!10^{-5}$ & $9.68\!\cdot\!10^{-5}$ & $-32.85$ & 
 \end{tabular}}
 \end{table}
 
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{figures/robustness_margin.pdf}
+\caption{All 15 design/quota combinations, using computed responses.
+Margin is the specified stopband upper limit minus the computed stopband
+peak; nonnegative values meet the stopband limit. Case B uses $-50$\,dB;
+the other cases use $-40$\,dB. Asterisks mark passband deviations exceeding
+$0.25$\,dB. Hollow greedy triangles keep coincident DP markers visible.
+DP meets both limits in 2/15 combinations; greedy in 0/15.
+These are software results, not hardware measurements.}
+\label{fig:robust-margin}
+\end{figure*}
+
 \subsection{Interpretation}
 
-DP meets both response limits in 2 of 15 combinations; greedy meets
+Figure~\ref{fig:robust-margin} shows the stopband margin for every tested
+combination and flags passband violations. DP meets both response limits
+in 2 of 15 combinations; greedy meets
 them in 0. The two DP passes occur for the highest-precision quota in
 cases A and E. This is not a universal frequency-response advantage:
 in case C's first quota, greedy has a slightly lower stopband peak

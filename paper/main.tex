@@ -80,20 +80,6 @@ unit-capacity bipartite transportation problem or binary assignment
 MILP, a relationship established in Section~\ref{sec:formulation}
 and verified empirically in Section~\ref{sec:validation}.
 
-Figure~\ref{fig:workflow} summarizes the allocation and validation workflow.
-Hardware checks use selected configurations; they are not a hardware
-replication of every software test.
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=\columnwidth]{figures/allocation_workflow.pdf}
-\caption{Allocation and validation workflow. DP and assignment MILP
-minimize the same separable coefficient-SSE objective; greedy is a
-baseline. Frequency response is evaluated after allocation, not imposed
-as a constraint on these three methods.}
-\label{fig:workflow}
-\end{figure}
-
 The report is organized as follows. Section~\ref{sec:related}
 reviews related work including the closest prior formulations.
 Section~\ref{sec:formulation} states the problem and its equivalences.

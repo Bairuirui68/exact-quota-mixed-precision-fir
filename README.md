@@ -53,7 +53,7 @@ With Python 3, NumPy, SciPy, and Matplotlib installed:
 python additional_fir_case/verify_case.py
 python additional_fir_case/plot_case.py
 python additional_fir_case/plot_paper_response.py
-python additional_fir_case/plot_workflow.py
+python additional_fir_case/plot_robustness_margin.py
 python additional_fir_case/screen_lengths.py
 ```
 
