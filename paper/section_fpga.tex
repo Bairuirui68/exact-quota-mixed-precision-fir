@@ -57,6 +57,21 @@ greedy allocation has SSE $6.6658 \times 10^{-5}$ and $-35.78$\,dB
 stopband limit even under DP, showing that coefficient-SSE optimality
 does not guarantee spectral compliance.
 
+Figure~\ref{fig:response48} compares the computed responses for the first
+quota. Both allocations meet the passband limit, but only DP meets the
+stopband limit in this case.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{figures/frequency_response_quota1.pdf}
+\caption{Computed frequency responses of the 48-tap FIR for quota
+$[24,16,8]$: (a) passband detail and (b) stopband detail. Gray dash-dot
+lines mark the stated limits. DP and greedy stopband peaks are
+$-41.30$ and $-35.78$\,dB, respectively. These curves are calculated
+from the saved coefficients, not measured on hardware.}
+\label{fig:response48}
+\end{figure}
+
 Eight RTL variants (DP, greedy, uniform 16-bit, uniform 8-bit; direct
 and symmetric-folded) passed XSim simulation over 2,500 cycles with
 1,861 valid outputs per design (14,888 total output comparisons) against

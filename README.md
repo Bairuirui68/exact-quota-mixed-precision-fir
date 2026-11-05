@@ -52,8 +52,14 @@ With Python 3, NumPy, SciPy, and Matplotlib installed:
 ```text
 python additional_fir_case/verify_case.py
 python additional_fir_case/plot_case.py
+python additional_fir_case/plot_paper_response.py
 python additional_fir_case/screen_lengths.py
 ```
+
+The publication figure is generated from the saved coefficient CSVs with
+SciPy/Matplotlib and exported as vector PDF/SVG plus a PNG preview in
+`paper/figures/`. It uses the same 65,536-point response grid as the reported
+metrics; peak values are checked against the saved result table.
 
 ### 48-tap RTL simulation and implementation
 
