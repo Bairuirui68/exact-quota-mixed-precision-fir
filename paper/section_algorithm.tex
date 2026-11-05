@@ -1,0 +1,43 @@
+% Algorithm section for tech report
+
+\subsection{Dynamic Programming}
+
+The DP processes coefficients in order and stores the minimum partial
+cost for each reached quota state. Let
+$D[i][c_{16}][c_8][c_4]$ denote the minimum squared error for the first
+$i$ coefficients using exactly $c_{16}$ 16-bit, $c_8$ 8-bit, and $c_4$
+4-bit assignments. The recurrence is:
+\begin{align}
+D[i][c_{16}][c_8][c_4] = \min\bigl\{& D[i\!-\!1][c_{16}\!-\!1][c_8][c_4] + e_i(16),\nonumber\\
+& D[i\!-\!1][c_{16}][c_8\!-\!1][c_4] + e_i(8),\nonumber\\
+& D[i\!-\!1][c_{16}][c_8][c_4\!-\!1] + e_i(4)\bigr\}
+\label{eq:dp_recurrence}
+\end{align}
+where $e_i(w) = (h_i - Q(h_i, w))^2$, with the constraint that each
+dimension of the predecessor state is non-negative.
+
+The time complexity is $O(N(n_{16}+1)(n_8+1)(n_4+1))$, matching the state
+count; each state has at most three transitions. The space complexity is
+the same (or can be reduced to one layer by processing coefficients in
+reverse order).
+
+\textbf{Optimality.} By induction on $i$: assume
+$D[i\!-\!1]$ stores the optimal cost for each reachable quota state. At
+step $i$, the recurrence examines every feasible predecessor; because
+the objective is separable ($\sum_i e_i(w_i)$) and each coefficient
+chooses exactly one width, the extension from the optimal predecessor
+yields the optimal value at $D[i]$. The terminal state
+$D[N][n_{16}][n_8][n_4]$ is therefore the global minimum for the stated
+objective and quota constraints.
+
+\subsection{Greedy Baseline}
+
+The greedy comparator starts with every coefficient at 4 bits and
+repeatedly selects the available 4-to-8 or 8-to-16 upgrade with the
+greatest immediate reduction in squared coefficient error, subject to
+remaining quota. It enforces the same final quota counts as the DP.
+
+The greedy algorithm was implemented as
+\texttt{adaptive\_precision\_error\_greedy.m}. It is described in
+Section~\ref{sec:validation} alongside the 108-configuration test
+results.

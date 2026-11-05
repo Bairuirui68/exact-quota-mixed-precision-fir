@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying technical report."
+title: "Exact-Quota Mixed-Precision FIR Coefficient Quantization: Dynamic Programming, FPGA Validation, and Feasibility Analysis of Response-Aware Allocation"
+type: software
+authors:
+  - family-names: Bai
+    given-names: Ruirui
+    affiliation: Shanxi University
+    email: bairuirui0924@163.com
+version: 1.0.0
+date-released: 2026-11-05

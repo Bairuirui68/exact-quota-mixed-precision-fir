@@ -1,0 +1,56 @@
+% Problem formulation section for tech report
+
+\subsection{Exact-Quota Width Assignment}
+
+Let $\mathbf{h} = [h_1, \ldots, h_N]$ be a fixed real-valued FIR
+coefficient vector and let $\mathcal{W} = \{16, 8, 4\}$ be the set of
+allowed binary widths. Given integer quotas $n_{16}$, $n_8$, $n_4$ with
+$n_{16}+n_8+n_4=N$, the problem is to find the width assignment
+$\mathbf{w} \in \mathcal{W}^N$ minimizing~\eqref{eq:sse} subject to
+\begin{equation}
+|\{i : w_i = w\}| = n_w, \quad w \in \mathcal{W}.
+\label{eq:quota}
+\end{equation}
+The quantization operator $Q(h,w)$ rounds $h$ to the nearest value
+representable with $w$ bits (1 sign, $w-1$ fractional bits, no saturation
+within the tested range).
+
+\subsection{Equivalence to Unit-Capacity Transportation}
+
+Problem~\eqref{eq:sse}--\eqref{eq:quota} is a binary assignment MILP.
+Let $x_{i,k} \in \{0,1\}$ indicate that coefficient $i$ receives width
+$\text{choices}(k)$; the cost of assignment $x_{i,k}=1$ is
+$c_{i,k} = (h_i - Q(h_i, \text{choices}(k)))^2$. Then:
+\begin{align}
+\min_{\mathbf{x}} \quad & \sum_{i=1}^N \sum_{k=1}^3 c_{i,k} x_{i,k}
+\label{eq:milp_obj}\\
+\text{s.t.} \quad
+& \sum_k x_{i,k} = 1, \quad i=1,\ldots,N \label{eq:milp_assign}\\
+& \sum_i x_{i,k} = n_k, \quad k=1,2,3 \label{eq:milp_quota}\\
+& x_{i,k} \in \{0,1\} \label{eq:milp_binary}
+\end{align}
+is a unit-capacity bipartite transportation / min-cost flow problem. The
+network has a source connected to each of the $N$ coefficient nodes
+(capacity 1, cost 0), each coefficient node connected to each of the 3
+width nodes (capacity 1, cost $c_{i,k}$), and each width node connected
+to a sink (capacity $n_k$, cost 0). Sending $N$ units of flow minimizes
+total cost and satisfies all quotas exactly.
+
+\subsection{Reduction to Scalar Exact Integer Cost}
+
+Llorens et al.~\cite{llorens2005integercost} study the minimization of
+an L-alpha coefficient-vector error under a scalar exact integer total
+cost $\sum_i r_{w_i} = R^*$, solved by a constrained-shortest-path DP.
+The present three-width exact-quota problem is a special case. Set
+$B = N+1$, $r_{16} = B+1$, $r_8 = 2$, $r_4 = 1$. Then for any
+assignment, $R = N + B n_{16} + n_8$; because $0 \le n_8 < B$, the
+value $R^* = N + B n_{16} + n_8$ uniquely encodes the quotas
+$(n_{16}, n_8, n_4)$. The Llorens DP at exact cost $R^*$ therefore
+solves the quota-constrained problem. This was empirically verified on
+all 108 saved test configurations (maximum objective discrepancy:
+floating-point rounding).
+
+The DP developed in Section~\ref{sec:algorithm} is a direct state
+encoding that tracks used quota counts rather than scalar cost; it is
+equivalent in result but distinct in state representation. Neither
+formulation constitutes a new optimization class.

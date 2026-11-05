@@ -1,0 +1,5 @@
+top,DSP48E1,LUT_as_logic,LUT_as_memory,Slice_LUTs,FF,overall_WNS_ns,reg_to_reg_slack_ns
+fir48_dp_folded,21,322,32,354,1066,-0.213,4.344
+fir48_greedy_folded,21,200,16,216,997,-0.43,5.189
+fir48_dp_direct,38,654,80,734,1106,-0.435,5.763
+fir48_greedy_direct,39,412,64,476,1043,-0.213,4.879

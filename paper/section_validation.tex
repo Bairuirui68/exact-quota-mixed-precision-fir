@@ -1,0 +1,44 @@
+% Software validation section for tech report
+
+\subsection{Exhaustive Consistency Checks}
+
+The DP implementation was checked against exhaustive enumeration on 29
+selected small cases (3--5 taps, various quotas). All costs agreed
+within floating-point tolerance (maximum absolute discrepancy
+$\sim 10^{-15}$). The greedy implementation also matched the
+exhaustive optima on those 29 cases.
+
+\subsection{108-Configuration Test Matrix}
+
+A larger matrix covers 3 filter types (lowpass/highpass/bandpass)
+$\times$ 4 cutoff/center settings $\times$ 3 tap counts (8/16/32, orders
+7/15/31) $\times$ 3 quotas, yielding 108 configurations. These are
+configurations of the same underlying approach, not 108 independent
+filter designs.
+
+Across the 108 cases:
+\begin{itemize}
+\item DP and greedy both satisfy quota constraints in every case.
+\item The greedy matched the DP objective in 85/108 = 78.7\% of
+configurations; median excess cost 0\%, mean 37.77\%, max 2166.37\%.
+\item Maximum absolute objective gap: $2.012 \times 10^{-6}$.
+\end{itemize}
+These are descriptive statistics; they do not imply a general
+performance claim for the greedy method.
+
+Timing was measured on MATLAB R2025a (Intel Core i5-12500H) with warmup
+and five repetitions. Median DP runtime was 0.047\,ms; median greedy was
+0.183\,ms. A separate paired assignment-baseline run measured median DP
+0.02615\,ms and MILP 2.3322\,ms. These are implementation-specific
+timings; they do not establish general runtime advantages.
+
+\subsection{Exact Assignment Baseline}
+
+All 108 configurations were solved as binary assignment MILP using
+MATLAB \texttt{intlinprog} (R2025a Optimization Toolbox). Every solve
+returned a positive exit flag, zero absolute and relative MIP gap, and
+used one branch-and-bound node. The maximum absolute objective
+discrepancy between MILP and DP across all 108 cases was
+$4.34 \times 10^{-19}$ (floating-point evaluation). This confirms the
+equivalence of the DP and the exact assignment formulation but does not
+evidence algorithmic novelty.

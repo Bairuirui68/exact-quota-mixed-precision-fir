@@ -1,0 +1,146 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{url}
+
+\title{Exact-Quota Mixed-Precision FIR Coefficient\\
+Quantization: Dynamic Programming, FPGA Validation,\\
+and Feasibility Analysis of Response-Aware Allocation}
+
+\author{Ruirui Bai%
+\thanks{Ruirui Bai is with Shanxi University, Taiyuan, China (e-mail: bairuirui0924@163.com).}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This technical report documents the design, analysis, and experimental
+evaluation of exact-quota mixed-precision coefficient quantization for
+FIR filters. The central problem assigns each of $N$ fixed coefficients
+one of three binary widths---16-bit, 8-bit, or 4-bit---subject to exact
+count constraints, and minimizes the total squared coefficient
+quantization error. This is equivalent to a unit-capacity bipartite
+transportation problem, a fact that limits the algorithmic novelty
+claim: the dynamic programming (DP) solution presented here is a
+structure-specific realization of a known cost-constrained DP class,
+not a new optimization principle.
+
+The report documents validation across three levels: (1) software---29
+exhaustive consistency checks, 108 test configurations comparing DP,
+greedy, and MILP baselines; (2) FPGA---6 synthesis/route experiments
+for an 8-tap filter on Xilinx Artix-7, and 4 synthesis/route
+experiments for a 48-tap symmetric-folded filter; (3) physical
+hardware---942 bit-exact functional comparisons across three
+configurations on an ACX750 development board. A 48-tap robustness
+study covers 15 design/quota combinations from 5 filter specifications;
+DP meets a $-40$\,dB stopband limit in 2 of 15 cases, greedy in 0.
+A response-aware allocation branch was explored; a 48-tap binary-product
+MILP reformulation was manually stopped after about 93 seconds because
+its root relaxation showed negligible progress toward proving optimality.
+The run returned no solver exit flag or final allocation, and the branch
+was closed under the pre-declared slow-progress stopping condition. All
+negative results are reported.
+No novelty claim is made.
+\end{abstract}
+
+\begin{IEEEkeywords}
+FIR filter, coefficient quantization, dynamic programming,
+mixed-precision, FPGA, assignment problem.
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+Finite-word-length implementation of FIR filters requires assigning a
+coefficient precision to each tap. When the available hardware supports
+a discrete set of widths---for example, 16-bit, 8-bit, and 4-bit
+multipliers---and the system specifies exact counts at each width, the
+assignment becomes a combinatorial optimization problem. The natural
+objective in coefficient-domain design is to minimize the total squared
+coefficient quantization error.
+
+This report studies the exact-quota version of that problem: given
+$N$ tap coefficients and integer counts $n_{16}$, $n_8$, $n_4$ with
+$n_{16}+n_8+n_4=N$, assign each coefficient a width from
+$\{16,8,4\}$ to minimize
+\begin{equation}
+\min_{\mathbf{w}} \sum_{i=1}^{N} \bigl(h_i - Q(h_i,w_i)\bigr)^2
+\label{eq:sse}
+\end{equation}
+subject to $|\{i: w_i=w\}|=n_w$ for each width~$w$.
+
+A DP recurrence processes coefficients in order and achieves the global
+minimum for~\eqref{eq:sse}. The formulation is equivalent to a
+unit-capacity bipartite transportation problem or binary assignment
+MILP, a relationship established in Section~\ref{sec:formulation}
+and verified empirically in Section~\ref{sec:validation}.
+
+The report is organized as follows. Section~\ref{sec:related}
+reviews related work including the closest prior formulations.
+Section~\ref{sec:formulation} states the problem and its equivalences.
+Section~\ref{sec:algorithm} describes the DP and greedy algorithm.
+Section~\ref{sec:validation} reports software validation.
+Section~\ref{sec:fpga} describes the FPGA case studies.
+Section~\ref{sec:robustness} reports the robustness study.
+Section~\ref{sec:response_aware} documents the response-aware
+allocation investigation and its negative result.
+Section~\ref{sec:conclusion} concludes.
+
+\section{Related Work}
+\label{sec:related}
+
+\input{section_related}
+
+\section{Problem Formulation}
+\label{sec:formulation}
+
+\input{section_formulation}
+
+\section{DP Algorithm and Greedy Baseline}
+\label{sec:algorithm}
+
+\input{section_algorithm}
+
+\section{Software Validation}
+\label{sec:validation}
+
+\input{section_validation}
+
+\section{FPGA Case Studies}
+\label{sec:fpga}
+
+\input{section_fpga}
+
+\section{Robustness Study: Five Filter Specifications}
+\label{sec:robustness}
+
+\input{section_robustness}
+
+\section{Response-Aware Allocation: Feasibility Investigation}
+\label{sec:response_aware}
+
+\input{section_response_aware}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\input{section_conclusion}
+
+\section*{Code and Data Availability}
+The source code, experimental data, FPGA RTL, and test vectors are available at
+\url{https://github.com/Bairuirui68/exact-quota-mixed-precision-fir}.
+
+\section*{Acknowledgment}
+Codex (OpenAI) assisted with manuscript drafting, code generation,
+experiment automation, and verification. The authors are responsible
+for checking all claims, data, and citations.
+
+\bibliographystyle{ieeetr}
+\bibliography{references}
+
+\end{document}

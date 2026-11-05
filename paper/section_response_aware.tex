@@ -1,0 +1,92 @@
+% Response-aware allocation section for tech report
+
+This section documents an investigation into whether the coefficient-SSE
+objective could be replaced by a frequency-response-aware objective, and
+whether the resulting allocation could be solved exactly under exact
+quota constraints.
+
+\subsection{Motivation and Mathematical Structure}
+
+The coefficient-SSE objective $\sum_i e_i^2$ is (by Parseval's theorem)
+proportional to the unweighted integrated squared frequency-response
+error over the full band. To focus on stopband compliance, the natural
+objective is the stopband-weighted integrated squared complex-response
+error $\mathbf{e}^\top R \mathbf{e}$, where
+\begin{equation}
+R_{ij} = \frac{1}{\pi} \int_{\Omega_\text{stop}} \cos(\omega(i-j))\,d\omega
+\end{equation}
+and $\Omega_\text{stop}$ is the stopband interval.
+
+Three key properties were established:
+\begin{enumerate}
+\item $R_{ii}$ is the same for all tap positions $i$: the diagonal
+weight equals the stopband bandwidth fraction and does not vary with
+tap index. Diagonal approximation therefore produces a uniform
+scaling of the SSE objective and does not change the allocation.
+\item $R$ has nonzero off-diagonal elements (magnitudes $6\times10^{-6}$
+to $0.30$ for the 48-tap case), so the objective $\mathbf{e}^\top R
+\mathbf{e}$ is not separable in the tap errors $e_i$. The existing
+quota DP, which assumes a separable objective, cannot directly solve
+the weighted formulation.
+\item Fang et al.~\cite{fang2025mixedprecision} also studied FIR
+allocation with a frequency-domain objective (minimax), so the
+objective type alone does not establish novelty.
+\end{enumerate}
+
+\subsection{Small-Scale Exhaustive Screening}
+
+To assess whether handling the cross-terms changes the optimal
+allocation, exhaustive search was run on five 8-tap filters under two
+quotas each (10 cases). Each case enumerated all feasible assignments
+(420--560 per case), found the SSE-minimizing allocation and the
+$\mathbf{e}^\top R \mathbf{e}$-minimizing allocation, and compared them.
+
+In 6 of 10 cases, the two optima differed and the weighted-optimal
+allocation had a lower stopband peak. However, the absolute stopband
+peaks for these 8-tap filters are poor ($-5$ to $-20$\,dB), and the
+improvements are small ($0.2$--$1.2$\,dB). The 10 cases arise from 5
+filter designs $\times$ 2 quotas; independence is limited.
+
+\subsection{Forty-Eight-Tap MIQP Attempt}
+
+To test whether the weighted objective can be solved exactly at realistic
+filter scales, the objective was linearized using binary product
+variables. For each pair $(i,k),(j,l)$ with $i<j$, a product variable
+$y = x_{i,k} x_{j,l}$ was introduced with standard McCormick
+inequalities. The resulting MILP had:
+\begin{itemize}
+\item 144 width-selection binary variables
+\item 10,152 product binary variables
+\item 51 equality constraints
+\item 30,456 McCormick inequality constraints
+\end{itemize}
+
+MATLAB \texttt{intlinprog} was warm-started with the SSE-DP solution.
+After approximately 93 seconds, the root-node LP lower bound was
+approximately $-5.637 \times 10^{-4}$ against an incumbent of
+$7.4603 \times 10^{-6}$ (gap~$\approx 7{,}656\%$), with no
+branch-and-bound nodes explored. The run was manually interrupted after
+approximately 93 seconds under the pre-declared slow-progress stopping
+condition. The root bound changed negligibly from approximately
+$-5.6371\times10^{-4}$. Ctrl+C terminated MATLAB before it returned an
+exit flag or final allocation. The negative LP bound reflects weak LP
+relaxation from the McCormick linearization; it is not a property of the
+objective.
+
+\subsection{Summary and Decision}
+
+Under the pre-declared stopping conditions (stop if progress is too slow;
+otherwise cap the run at 1 hour), this branch was closed:
+
+\begin{quote}
+\textit{STOP: The direct pairwise-product MILP has a weak LP relaxation
+that did not certify global optimality in the observed run.
+No response-aware allocation or improvement claim follows from the
+attempted runs.}
+\end{quote}
+
+This outcome does not imply that response-aware allocation with exact
+quota constraints is mathematically intractable. A dedicated MIQP solver
+(e.g., Gurobi or CPLEX) or a stronger relaxation strategy may
+certify global optimality at 48-tap scale. This remains future work
+conditioned on solver availability.

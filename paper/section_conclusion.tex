@@ -1,0 +1,51 @@
+% Conclusion section for tech report
+
+This report documented the design, analysis, and experimental validation
+of exact-quota mixed-precision FIR coefficient quantization.
+
+The central problem---assign $N$ coefficients to three fixed-point widths
+under exact count constraints, minimizing squared coefficient error---is
+a unit-capacity bipartite transportation problem. Its DP solution is a
+direct state-encoding realization of known cost-constrained FIR
+quantization DP; it is not a new optimization class or principle.
+This limitation was established mathematically and confirmed empirically
+by scalar-cost encoding and full MILP comparison on all 108 test cases.
+
+The implemented DP achieves the global minimum of the stated objective,
+as verified by 29 exhaustive checks and 108-case MILP comparison
+(maximum objective discrepancy: $4.34 \times 10^{-19}$). Three levels
+of hardware validation were completed for an 8-tap implementation: 6
+FPGA synthesis/implementation runs on Artix-7, and 942 bit-exact board
+functional comparisons. A 48-tap case study added software allocation
+comparison, RTL simulation (14,888 output comparisons), and 4
+FPGA synthesis runs; in the 48-tap case, DP allocation meets a $-40$\,dB
+stopband limit under one quota where same-quota greedy does not, at the
+cost of more LUTs and registers.
+
+A robustness study across 5 filter designs and 15 quotas showed DP
+meeting the stated stopband limit in 2 of 15 cases, greedy in 0. DP
+does not universally produce lower stopband peaks than greedy; in some
+cases greedy's peak is slightly lower, although both fail the limit.
+Coefficient-SSE optimality does not imply spectral compliance.
+
+A response-aware allocation branch was explored: the band-weighted
+objective is not separable (cross-terms exist), the diagonal
+approximation is uniform and does not change the allocation, and the
+48-tap MIQP under MILP McCormick linearization showed a weak LP
+relaxation and was manually stopped after about 93 seconds without
+proving optimality. MATLAB returned no exit flag or allocation. This
+branch was closed under the pre-declared slow-progress stopping condition.
+
+No novelty claim is made. The work demonstrates a complete chain of
+reproducible evidence---software, FPGA, and hardware---for one 8-tap and
+one 48-tap filter case. It includes both the technical findings and the
+negative feasibility results from the response-aware allocation
+investigation.
+
+\textbf{Future work.} Response-aware allocation with exact quotas may be
+tractable with dedicated MIQP solvers (Gurobi, CPLEX) or tighter
+reformulations; the present toolchain did not include those solvers. Physical
+board testing, Fmax characterization, and power measurement for the
+48-tap design remain open. A wider filter and quota study with hardware
+validation would strengthen the characterization of algorithm-selection
+tradeoffs in practical designs.

@@ -1,0 +1,7 @@
+run,config,mapping,DSP_synth,LUT_logic_synth,LUT_memory_synth,FF_synth,DSP_route,LUT_logic_route,LUT_memory_route,FF_route,overall_WNS_ns,overall_TNS_ns,core_reg_to_reg_WNS_ns,core_reg_to_reg_TNS_ns
+A1,A,forced,8,100,0,109,8,100,0,109,-0.213,-6.704,5.952,0.000
+A2,A,auto,8,100,0,109,8,100,0,109,-0.213,-6.704,5.952,0.000
+B1,B,forced,6,124,0,189,6,124,0,189,-0.213,-5.239,6.500,0.000
+B2,B,auto,4,166,16,279,4,166,16,279,-0.213,-5.239,6.725,0.000
+C1,C,forced,6,132,0,175,6,132,0,175,-0.695,-8.494,6.323,0.000
+C2,C,auto,6,132,0,175,6,132,0,175,-0.695,-8.494,6.323,0.000

@@ -1,0 +1,85 @@
+% Related work section for tech report
+
+Several lines of prior work are directly relevant. Twelve papers were
+reviewed in full in the project literature assessment, and six additional
+works received abstract-level screening. The reviewed set is targeted,
+not an exhaustive search of the field.
+
+\subsection{Finite-Word-Length FIR Design}
+
+Kodek and Steiglitz~\cite{kodek1980filter} analyzed length-wordlength
+tradeoffs for FIR filters, proving a nonzero lower bound on weighted
+Chebyshev error for fixed coefficient wordlength. Their complexity proxy
+$Nb$ motivates joint optimization; their analysis assumes a common
+wordlength, not per-coefficient quotas.
+
+Lim, Parker, and Constantinides~\cite{lim1982finite} minimized FIR
+designs over discrete coefficient-value spaces using integer linear and
+quadratic programming, comparing discrete-space designs with rounded
+infinite-wordlength designs. Lim~\cite{lim1990nprm} extended this to
+normalized peak-ripple minimization, using MILP methods with passband
+gain as a design variable.
+
+\subsection{SPT-Based and Hardware-Aware Coefficient Allocation}
+
+Several methods allocate signed-power-of-two (SPT) terms across
+coefficients. Llorens, Hadjicostis, and Ni~\cite{llorens2005integercost}
+formulated FIR coefficient quantization under a scalar total integer-cost
+constraint using a constrained-shortest-path DP. Their alpha=2 case
+relates coefficient-vector error to frequency-response MSE via Parseval's
+theorem. For exact three-width quotas, a radix encoding
+($r_{16}=B+1$, $r_8=2$, $r_4=1$, $B=N+1$) reduces the quota DP to a
+scalar exact-cost DP, so the present quota DP is a specialized
+realization of Llorens et al.'s framework, not a new optimization class.
+
+Chen and Willson~\cite{chen1999trellis} used a trellis (Viterbi-like)
+search for SPT term allocation against frequency-response criteria; their
+survivor pruning does not guarantee global optimality. Li, Lim, Lian,
+and Song~\cite{li2002polynomial} allocated a global SPT-term budget with
+variable per-coefficient counts using greedy sequential allocation;
+the authors describe the result as suboptimal.
+
+Aktan, Yurdakul, and D\"{u}ndar~\cite{aktan2008algorithm} used
+branch-and-bound (FIRGAM) with LP for coefficient bounds to reduce SPT
+count while meeting frequency specifications; worst-case runtime is
+exponential.
+
+Kuo, Lin, and Liu~\cite{kuo2011complexity} integrated successive SPT
+allocation with common-subexpression elimination under an exact global
+post-CSE addition budget, reporting 0.35-$\mu$m CMOS synthesis results.
+
+\subsection{Subexpression-Space and Structure Optimization}
+
+Yu and Lim~\cite{yu2007subexpression} optimized FIR coefficients
+directly in a discrete subexpression space using branch-and-bound MILP,
+minimizing frequency-response ripple subject to an adder budget. This is
+a direct coefficient-space search, not a two-stage quantize-then-CSE
+pipeline.
+
+Blad and Gustafsson~\cite{blad2010integer} used ILP to optimize
+partial-product reduction trees and pipeline registers for fixed
+coefficient representations, targeting 90-nm CMOS. Their decision
+variables are hardware structural elements, not coefficient widths.
+
+\subsection{Mixed-Precision FIR Allocation}
+
+Fang, Chen, Chen, Wang, and You~\cite{fang2025mixedprecision} proposed a
+PSO-based bit-allocation framework applied to FIR filter design with a
+frequency-domain minimax objective and aggregate bit-consumption
+constraint. Their constraint is an inequality on total bits ($\sum b_n
+\le N \bar{b}$), not exact per-width counts. Their allocation assumes
+symmetric widths (linear-phase structure). This is the closest prior
+mixed-precision FIR allocation paper; it differs from the present work
+in constraint type, objective, and solution method.
+
+Sarma, Sai, and Chatterjee~\cite{sarma2026coefficient} used a
+coefficient-magnitude threshold to select exact or LUT-approximate
+multipliers under an output-error budget on a Zynq UltraScale+ radar DDC
+implementation. Their quantization model (approximate arithmetic)
+differs from fixed-point coefficient widths.
+
+\subsection{Neural-Network Mixed-Precision}
+
+Yang and Jin's FracBits~\cite{yang2021fracbits} assigns fractional
+bit-widths in neural-network quantization. It is included as
+methodological context; it is not a direct FIR baseline.

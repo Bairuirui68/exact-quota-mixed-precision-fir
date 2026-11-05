@@ -1,0 +1,7 @@
+run,config,mapping,DSP48E1_synth,LUT_primitive_cells_synth,FF_primitive_cells_synth,DSP48E1_route,LUT_primitive_cells_route,FF_primitive_cells_route
+A1,A,forced,8,103,109,8,103,109
+A2,A,auto,8,103,109,8,103,109
+B1,B,forced,6,129,189,6,129,189
+B2,B,auto,4,179,279,4,179,279
+C1,C,forced,6,137,175,6,137,175
+C2,C,auto,6,137,175,6,137,175

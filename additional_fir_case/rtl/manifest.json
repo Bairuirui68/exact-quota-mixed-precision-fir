@@ -1,0 +1,40 @@
+{
+  "cycles": 2500,
+  "tops": [
+    "fir48_dp_folded",
+    "fir48_dp_direct",
+    "fir48_greedy_folded",
+    "fir48_greedy_direct",
+    "fir48_all16_folded",
+    "fir48_all16_direct",
+    "fir48_all8_folded",
+    "fir48_all8_direct"
+  ],
+  "valid_outputs_per_top": 1861,
+  "mixed_quota": [
+    24,
+    16,
+    8
+  ],
+  "output_bits": 38,
+  "fraction_bits": 29,
+  "folding_condition": "Aligned coefficient values symmetric; zero coefficient width labels can differ.",
+  "latency_edge_difference": 7,
+  "measured_hardware": false,
+  "hashes": {
+    "expected_all16.hex": "1bdb8981177c238733aa81c1e2d00147278a91c8766bc8d2104c32f29c961566",
+    "expected_all8.hex": "3c5f130c6a1b5e3eb19e8949fc492a4d8acf70e742edb54d218cae871152384d",
+    "expected_dp.hex": "799433119b74b7a97954ac5881f93ec25da6f3e0b7df8bd8c57fdbc0f866de4c",
+    "expected_greedy.hex": "63a9fbae09afe88f9564deb606f9734d14ea07aede81a7046f1c049b408ef325",
+    "fir48_all16_direct.v": "59cb1e562ce7fc4b181a037260169d8a2d326285bfcfd3838e143b79024f8cdb",
+    "fir48_all16_folded.v": "e8b98978f1139fdf3075dbb4335649935a65e0945acc5cc1c749bf6d7a29bb5a",
+    "fir48_all8_direct.v": "0f8911cb256e49184d986f3d7b91b9b62c78a368ba42dd6758838efee7d6ef1c",
+    "fir48_all8_folded.v": "d2471e66d408cb0803cce1f5cbbe598db1d515aa0a28caf5bb1a7b7c0ffd03a7",
+    "fir48_dp_direct.v": "d73e9db4380fcdb7aef9fbffae7e9db2598a61fd24edbc9ac224fd8779fb9939",
+    "fir48_dp_folded.v": "dc6640ec7b91443dff6f71c40332afb2e1f8cbfc138dba78b871537e3ff87691",
+    "fir48_greedy_direct.v": "af205b8c0fd4729316b254f340ab699569cd05fda5424da4d4960878ef49a6fa",
+    "fir48_greedy_folded.v": "f341a4ef45975dcfef4d7097f946c4d98a4f21062258ba01ee745be86397c09a",
+    "stimulus.hex": "e76d3456e146498a01eb5e89ff3aa8b444770ca4bac4b641bbccc5e4aa1ee643",
+    "tb_fir48.sv": "d17443c5d89d9a8ce81ea59289789ea669111bb4af750914beeb40f14b98163a"
+  }
+}

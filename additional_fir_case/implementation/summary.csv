@@ -1,0 +1,5 @@
+top,DSP48E1,LUT_logic_primitive,FF_primitive,overall_WNS_ns,reg_to_reg_slack_ns
+fir48_dp_folded,21,341,1066,-0.213,4.344
+fir48_greedy_folded,21,210,997,-0.430,5.189
+fir48_dp_direct,38,718,1106,-0.435,5.763
+fir48_greedy_direct,39,468,1043,-0.213,4.879
