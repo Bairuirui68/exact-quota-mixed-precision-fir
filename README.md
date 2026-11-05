@@ -73,4 +73,4 @@ The CSVs in `data/board_8tap/` contain the observations behind the functional-co
 
 ## Software and Data Licensing
 
-No repository-wide reuse license has been selected yet. Public visibility does not itself grant permission to reuse or redistribute the code or data. The bundled `paper/IEEEtran.cls` retains its upstream LPPL notices. Add a repository license only after the author chooses one and confirms it covers the intended material.
+Repository code and original data are released under the MIT License in [`LICENSE`](LICENSE). The bundled `paper/IEEEtran.cls` is third-party material and retains its upstream LPPL notices; the repository MIT license does not replace that license.
