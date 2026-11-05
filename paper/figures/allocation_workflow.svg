@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="252pt" height="255.6pt" viewBox="0 0 252 255.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-05T23:21:52.644663</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 255.6 
+L 252 255.6 
+L 252 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 23.75856 29.859192 
+L 228.24144 29.859192 
+Q 230.71104 29.859192 230.71104 27.354312 
+L 230.71104 9.820152 
+Q 230.71104 7.315272 228.24144 7.315272 
+L 23.75856 7.315272 
+Q 21.28896 7.315272 21.28896 9.820152 
+L 21.28896 27.354312 
+Q 21.28896 29.859192 23.75856 29.859192 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #ffffff; stroke: #404040; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 23.75856 62.422632 
+L 228.24144 62.422632 
+Q 230.71104 62.422632 230.71104 59.917752 
+L 230.71104 42.383592 
+Q 230.71104 39.878712 228.24144 39.878712 
+L 23.75856 39.878712 
+Q 21.28896 39.878712 21.28896 42.383592 
+L 21.28896 59.917752 
+Q 21.28896 62.422632 23.75856 62.422632 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #ffffff; stroke: #404040; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 126 32.11285 
+Q 126 34.870567 126 36.845659 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: round"/>
+    <path d="M 127.6 33.645659 
+L 126 36.845659 
+L 124.4 33.645659 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #404040; stroke: #404040; stroke-width: 0.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 7.70616 105.005592 
+L 78.83064 105.005592 
+Q 81.30024 105.005592 81.30024 102.500712 
+L 81.30024 80.457768 
+Q 81.30024 77.952888 78.83064 77.952888 
+L 7.70616 77.952888 
+Q 5.23656 77.952888 5.23656 80.457768 
+L 5.23656 102.500712 
+Q 5.23656 105.005592 7.70616 105.005592 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #edf5fa; stroke: #0072b2; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 90.43776 105.005592 
+L 161.56224 105.005592 
+Q 164.03184 105.005592 164.03184 102.500712 
+L 164.03184 80.457768 
+Q 164.03184 77.952888 161.56224 77.952888 
+L 90.43776 77.952888 
+Q 87.96816 77.952888 87.96816 80.457768 
+L 87.96816 102.500712 
+Q 87.96816 105.005592 90.43776 105.005592 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #ffffff; stroke: #404040; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 173.16936 105.005592 
+L 244.29384 105.005592 
+Q 246.76344 105.005592 246.76344 102.500712 
+L 246.76344 80.457768 
+Q 246.76344 77.952888 244.29384 77.952888 
+L 173.16936 77.952888 
+Q 170.69976 77.952888 170.69976 80.457768 
+L 170.69976 102.500712 
+Q 170.69976 105.005592 173.16936 105.005592 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #ffffff; stroke: #404040; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 43.2684 72.692151 
+Q 43.2684 74.196693 43.2684 74.918612 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: round"/>
+    <path d="M 44.8684 71.718612 
+L 43.2684 74.918612 
+L 41.6684 71.718612 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #404040; stroke: #404040; stroke-width: 0.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 126 72.692151 
+Q 126 74.196693 126 74.918612 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: round"/>
+    <path d="M 127.6 71.718612 
+L 126 74.918612 
+L 124.4 71.718612 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #404040; stroke: #404040; stroke-width: 0.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 208.7316 72.692151 
+Q 208.7316 74.196693 208.7316 74.918612 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: round"/>
+    <path d="M 210.3316 71.718612 
+L 208.7316 74.918612 
+L 207.1316 71.718612 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #404040; stroke: #404040; stroke-width: 0.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 23.75856 145.083672 
+L 228.24144 145.083672 
+Q 230.71104 145.083672 230.71104 142.578792 
+L 230.71104 120.535848 
+Q 230.71104 118.030968 228.24144 118.030968 
+L 23.75856 118.030968 
+Q 21.28896 118.030968 21.28896 120.535848 
+L 21.28896 142.578792 
+Q 21.28896 145.083672 23.75856 145.083672 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #ffffff; stroke: #404040; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 126 116.022906 
+Q 126 116.901693 126 116.997856 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: round"/>
+    <path d="M 127.6 113.797856 
+L 126 116.997856 
+L 124.4 113.797856 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #404040; stroke: #404040; stroke-width: 0.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 7.70616 208.958112 
+L 117.10944 208.958112 
+Q 119.57904 208.958112 119.57904 206.453232 
+L 119.57904 168.128568 
+Q 119.57904 165.623688 117.10944 165.623688 
+L 7.70616 165.623688 
+Q 5.23656 165.623688 5.23656 168.128568 
+L 5.23656 206.453232 
+Q 5.23656 208.958112 7.70616 208.958112 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #ffffff; stroke: #404040; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 134.89056 208.958112 
+L 244.29384 208.958112 
+Q 246.76344 208.958112 246.76344 206.453232 
+L 246.76344 168.128568 
+Q 246.76344 165.623688 244.29384 165.623688 
+L 134.89056 165.623688 
+Q 132.42096 165.623688 132.42096 168.128568 
+L 132.42096 206.453232 
+Q 132.42096 208.958112 134.89056 208.958112 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #ffffff; stroke: #404040; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 62.53128 157.354649 
+Q 62.53128 160.363563 62.53128 162.589854 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: round"/>
+    <path d="M 64.13128 159.389854 
+L 62.53128 162.589854 
+L 60.93128 159.389854 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #404040; stroke: #404040; stroke-width: 0.7; stroke-linecap: round"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 189.46872 157.354649 
+Q 189.46872 160.363563 189.46872 162.589854 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: round"/>
+    <path d="M 191.06872 159.389854 
+L 189.46872 162.589854 
+L 187.86872 159.389854 
+z
+" clip-path="url(#pb97fd4fac6)" style="fill: #404040; stroke: #404040; stroke-width: 0.7; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 43.2684 70.688736 
+L 208.7316 70.688736 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 126 62.422632 
+L 126 70.688736 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 43.2684 114.02316 
+L 208.7316 114.02316 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 43.2684 105.005592 
+L 43.2684 114.02316 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 126 105.005592 
+L 126 114.02316 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 208.7316 105.005592 
+L 208.7316 114.02316 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_7">
+    <path d="M 62.53128 155.35368 
+L 189.46872 155.35368 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_8">
+    <path d="M 126 145.083672 
+L 126 155.35368 
+" clip-path="url(#pb97fd4fac6)" style="fill: none; stroke: #404040; stroke-width: 0.7; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(55.83125 16.581998)">Fixed FIR coefficients + exact width counts</text>
+    <!-- $h_i,\quad(n_{16},n_8,n_4)$ -->
+    <g transform="translate(98.8 25.354966)">
+     <text>
+      <tspan x="0" y="-0.53125" style="font-style: italic; font-size: 8px; font-family: 'STIXGeneral'">h</tspan>
+      <tspan x="20.180673" y="-0.53125" style="font-style: italic; font-size: 8px; font-family: 'STIXGeneral'">n</tspan>
+      <tspan x="33.740532" y="-0.53125" style="font-style: italic; font-size: 8px; font-family: 'STIXGeneral'">n</tspan>
+      <tspan x="44.500424" y="-0.53125" style="font-style: italic; font-size: 8px; font-family: 'STIXGeneral'">n</tspan>
+      <tspan x="3.999954" y="0.66875" style="font-style: italic; font-size: 5.6px; font-family: 'STIXGeneral'">i</tspan>
+      <tspan x="5.916732" y="-0.53125" style="font-size: 8px; font-family: 'STIXGeneral'">,</tspan>
+      <tspan x="17.516702" y="-0.53125" style="font-size: 8px; font-family: 'STIXGeneral'">(</tspan>
+      <tspan x="30.140563" y="-0.53125" style="font-size: 8px; font-family: 'STIXGeneral'">,</tspan>
+      <tspan x="40.900454" y="-0.53125" style="font-size: 8px; font-family: 'STIXGeneral'">,</tspan>
+      <tspan x="51.660346" y="-0.53125" style="font-size: 8px; font-family: 'STIXGeneral'">)</tspan>
+      <tspan x="24.180627" y="0.66875" style="font-size: 5.6px; font-family: 'STIXGeneral'">1</tspan>
+      <tspan x="26.980595" y="0.66875" style="font-size: 5.6px; font-family: 'STIXGeneral'">6</tspan>
+      <tspan x="37.740486" y="0.66875" style="font-size: 5.6px; font-family: 'STIXGeneral'">8</tspan>
+      <tspan x="48.500378" y="0.66875" style="font-size: 5.6px; font-family: 'STIXGeneral'">4</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(68.42625 48.344813)">Construct per-tap quantization costs</text>
+    <!-- $c_{i,w}=[h_i-Q(h_i,w)]^2$ -->
+    <g transform="translate(91.2 58.438406)">
+     <text>
+      <tspan x="0" y="-0.911625" style="font-style: italic; font-size: 8px; font-family: 'STIXGeneral'">c</tspan>
+      <tspan x="23.067775" y="-0.911625" style="font-style: italic; font-size: 8px; font-family: 'STIXGeneral'">h</tspan>
+      <tspan x="37.664442" y="-0.911625" style="font-style: italic; font-size: 8px; font-family: 'STIXGeneral'">Q</tspan>
+      <tspan x="46.104337" y="-0.911625" style="font-style: italic; font-size: 8px; font-family: 'STIXGeneral'">h</tspan>
+      <tspan x="55.621039" y="-0.911625" style="font-style: italic; font-size: 8px; font-family: 'STIXGeneral'">w</tspan>
+      <tspan x="3.551956" y="0.288375" style="font-style: italic; font-size: 5.6px; font-family: 'STIXGeneral'">i</tspan>
+      <tspan x="7.628713" y="0.288375" style="font-style: italic; font-size: 5.6px; font-family: 'STIXGeneral'">w</tspan>
+      <tspan x="27.067729" y="0.288375" style="font-style: italic; font-size: 5.6px; font-family: 'STIXGeneral'">i</tspan>
+      <tspan x="50.104291" y="0.288375" style="font-style: italic; font-size: 5.6px; font-family: 'STIXGeneral'">i</tspan>
+      <tspan x="5.108734" y="0.288375" style="font-size: 5.6px; font-family: 'STIXGeneral'">,</tspan>
+      <tspan x="66.410918" y="-4.215625" style="font-size: 5.6px; font-family: 'STIXGeneral'">2</tspan>
+      <tspan x="13.323869" y="-0.911625" style="font-size: 8px; font-family: 'STIXGeneral'">=</tspan>
+      <tspan x="20.403804" y="-0.911625" style="font-size: 8px; font-family: 'STIXGeneral'">[</tspan>
+      <tspan x="30.584507" y="-0.911625" style="font-size: 8px; font-family: 'STIXGeneral'">−</tspan>
+      <tspan x="43.440366" y="-0.911625" style="font-size: 8px; font-family: 'STIXGeneral'">(</tspan>
+      <tspan x="52.021069" y="-0.911625" style="font-size: 8px; font-family: 'STIXGeneral'">,</tspan>
+      <tspan x="60.956976" y="-0.911625" style="font-size: 8px; font-family: 'STIXGeneral'">)</tspan>
+      <tspan x="63.620947" y="-0.911625" style="font-size: 8px; font-family: 'STIXGeneral'">]</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(27.37965 88.677131)">Quota DP</text>
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(10.8259 98.128849)">Exact SSE optimum</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(114.228125 88.665881)">Greedy</text>
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(98.121875 98.121349)">Upgrade baseline</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(179.063475 88.665881)">Assignment MILP</text>
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(179.745975 98.929474)">Exact cross-check</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(93.9 129.546461)">Software evaluation</text>
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(43.356875 138.199429)">Quota validity, coefficient SSE, frequency response</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(46.3053 179.682931)">8-tap case</text>
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(6.77405 190.0134)">RTL simulation + routed resources</text>
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(22.288425 199.461369)">UART board verification</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(171.4897 179.682931)">48-tap case</text>
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(133.95845 190.0134)">RTL simulation + routed resources</text>
+    <text style="font-size: 8px; font-family: 'Times New Roman', 'STIXGeneral', serif" transform="translate(136.942825 198.668244)">No board or power measurement</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STIXGeneral', serif; fill: #404040" transform="translate(57.48457 227.862556)">Hardware checks use selected configurations;</text>
+    <text style="font-size: 7.5px; font-family: 'Times New Roman', 'STIXGeneral', serif; fill: #404040" transform="translate(52.999219 236.727058)">width counts are not measured resource budgets.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb97fd4fac6">
+   <rect x="2.52" y="2.556" width="246.96" height="250.488"/>
+  </clipPath>
+ </defs>
+</svg>

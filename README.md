@@ -8,7 +8,7 @@ Ruirui Bai, Shanxi University, Taiyuan, China. Contact: `bairuirui0924@163.com`.
 
 ## Contents
 
-- `paper/`: six-page technical report, LaTeX source, bibliography, IEEEtran class, and compiled PDF.
+- `paper/`: seven-page technical report, LaTeX source, bibliography, IEEEtran class, and compiled PDF.
 - `extended_validation/`: MATLAB DP/greedy/exhaustive validation source and saved validation data.
 - `data/assignment_baseline/`: saved 108-case MILP-versus-DP result tables.
 - `additional_fir_case/`: 48-tap MATLAB scripts, allocation data, generated RTL and independent simulation vectors, plus compact routed result summaries.
@@ -53,6 +53,7 @@ With Python 3, NumPy, SciPy, and Matplotlib installed:
 python additional_fir_case/verify_case.py
 python additional_fir_case/plot_case.py
 python additional_fir_case/plot_paper_response.py
+python additional_fir_case/plot_workflow.py
 python additional_fir_case/screen_lengths.py
 ```
 
