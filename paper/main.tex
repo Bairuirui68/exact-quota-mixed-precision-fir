@@ -8,45 +8,42 @@
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{url}
+\usepackage{flushend}
+\usepackage{flushend}
 
-\title{Exact-Quota Mixed-Precision FIR Coefficient\\
-Quantization: Dynamic Programming, FPGA Validation,\\
-and Feasibility Analysis of Response-Aware Allocation}
+\title{Exact-Quota Mixed-Precision FIR Quantization:\\
+Dynamic Programming, FPGA Validation,\\
+and Response-Aware Feasibility}
 
 \author{Ruirui Bai%
 \thanks{Ruirui Bai is with Shanxi University, Taiyuan, China (e-mail: bairuirui0924@163.com).}}
 
 \begin{document}
+\raggedbottom
 \maketitle
 
 \begin{abstract}
-This technical report documents the design, analysis, and experimental
-evaluation of exact-quota mixed-precision coefficient quantization for
-FIR filters. The central problem assigns each of $N$ fixed coefficients
-one of three binary widths---16-bit, 8-bit, or 4-bit---subject to exact
-count constraints, and minimizes the total squared coefficient
-quantization error. This is equivalent to a unit-capacity bipartite
-transportation problem, a fact that limits the algorithmic novelty
-claim: the dynamic programming (DP) solution presented here is a
-structure-specific realization of a known cost-constrained DP class,
-not a new optimization principle.
-
-The report documents validation across three levels: (1) software---29
-exhaustive consistency checks, 108 test configurations comparing DP,
-greedy, and MILP baselines; (2) FPGA---6 synthesis/route experiments
-for an 8-tap filter on Xilinx Artix-7, and 4 synthesis/route
-experiments for a 48-tap symmetric-folded filter; (3) physical
-hardware---942 bit-exact functional comparisons across three
-configurations on an ACX750 development board. A 48-tap robustness
-study covers 15 design/quota combinations from 5 filter specifications;
-DP meets a $-40$\,dB stopband limit in 2 of 15 cases, greedy in 0.
-A response-aware allocation branch was explored; a 48-tap binary-product
-MILP reformulation was manually stopped after about 93 seconds because
-its root relaxation showed negligible progress toward proving optimality.
-The run returned no solver exit flag or final allocation, and the branch
-was closed under the pre-declared slow-progress stopping condition. All
-negative results are reported.
-No novelty claim is made.
+This technical report evaluates exact-quota mixed-precision FIR
+coefficient quantization using 16-, 8-, and 4-bit widths. A dynamic
+program (DP) minimizes coefficient squared error under exact width
+counts. The formulation is equivalent to unit-capacity transportation
+and specializes known cost-constrained quantization methods; no new
+optimization principle is claimed. Software validation comprises 29
+exhaustive checks and 108 configurations compared with greedy and
+assignment-MILP baselines. Hardware evidence includes six routed 8-tap
+runs and 942 bit-exact board comparisons, plus four routed 48-tap runs
+and 14,888 RTL output comparisons. Across five filter designs and 15
+design/quota combinations, DP meets both passband and stopband limits
+in two combinations, while greedy meets them in none. Greedy nevertheless
+has a lower stopband peak in some failed cases: coefficient-error
+optimality does not guarantee spectral compliance. A band-weighted
+response objective introduces cross-terms; its diagonal approximation
+does not change the allocation. A 48-tap binary-product MILP attempt
+was manually stopped after about 93 seconds under a pre-declared
+slow-progress condition, without an optimality certificate or final
+allocation. The report provides reproducible code and data, including
+negative findings. The 48-tap study includes no board, power, or Fmax
+measurements.
 \end{abstract}
 
 \begin{IEEEkeywords}

@@ -12,8 +12,8 @@ lookup = {(r['case_label'], int(r['quota_id']), r['method']): r for r in rows}
 plt.rcParams.update({'font.family':'serif', 'font.serif':['Times New Roman'],
     'font.size':8, 'mathtext.fontset':'stix', 'pdf.fonttype':42, 'svg.fonttype':'none',
     'axes.linewidth':.6})
-fig, ax = plt.subplots(figsize=(7.1,4.65))
-fig.subplots_adjust(left=.33,right=.975,bottom=.14,top=.89)
+fig, ax = plt.subplots(figsize=(7.1,3.85))
+fig.subplots_adjust(left=.30,right=.975,bottom=.15,top=.88)
 colors = {'DP':'#0072B2', 'greedy':'#D55E00'}
 markers = {'DP':'o', 'greedy':'^'}
 labels=[]; exported=[]; passes={'DP':0,'greedy':0}
@@ -37,7 +37,7 @@ for ci, case in enumerate('ABCDE'):
                 passband_max_abs_db=r['passband_max_abs_db'],meets_spec=r['meets_spec']))
         labels.append('['+', '.join(pair[0][k] for k in ['n16','n8','n4'])+']')
     r=pair[0]
-    ax.text(-.39,ci*3+1,f"{case}: {r['n_taps']} taps\n{float(r['stop_limit_db']):.0f} dB limit",
+    ax.text(-.34,ci*3+1,f"{case}: {r['n_taps']} taps\n{float(r['stop_limit_db']):.0f} dB limit",
         transform=ax.get_yaxis_transform(),ha='left',va='center',fontsize=8)
     if ci<4: ax.axhline(ci*3+2.5,color='.8',lw=.6)
 assert passes=={'DP':2,'greedy':0}
