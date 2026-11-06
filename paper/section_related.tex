@@ -31,6 +31,16 @@ theorem. For exact three-width quotas, a radix encoding
 ($r_{16}=B+1$, $r_8=2$, $r_4=1$, $B=N+1$) reduces the quota DP to a
 scalar exact-cost DP, so the present quota DP is a specialized
 realization of Llorens et al.'s framework, not a new optimization class.
+They also describe a greedy algorithm with a conditional optimality
+guarantee: the guarantee depends on the marginal error reduction as the
+integer cost increases. The sparse costs used in the radix encoding do not
+automatically satisfy that condition: intermediate cost levels represent no
+additional width choice, while the final jump to 16 bits can have a positive
+error reduction. The greedy baseline in this report instead selects the
+largest immediate squared-error reduction among quota-feasible 4-to-8 and
+8-to-16 upgrades. It is a comparator only; no optimality guarantee is
+claimed, and it is not identified with Llorens et al.'s conditionally
+optimal greedy algorithm.
 
 Chen and Willson~\cite{chen1999trellis} used a trellis (Viterbi-like)
 search for SPT term allocation against frequency-response criteria; their

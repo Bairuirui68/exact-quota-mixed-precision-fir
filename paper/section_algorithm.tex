@@ -16,10 +16,18 @@ D[i][c_{16}][c_8][c_4] = \min\bigl\{& D[i\!-\!1][c_{16}\!-\!1][c_8][c_4] + e_i(1
 where $e_i(w) = (h_i - Q(h_i, w))^2$, with the constraint that each
 dimension of the predecessor state is non-negative.
 
-The time complexity is $O(N(n_{16}+1)(n_8+1)(n_4+1))$, matching the state
-count; each state has at most three transitions. The space complexity is
-the same (or can be reduced to one layer by processing coefficients in
-reverse order).
+Initialization is $D[0][0][0][0]=0$; all other states at $i=0$ are
+$+\infty$. The implementation allocates full four-dimensional cost and
+backpointer arrays, with $(N+1)(n_{16}+1)(n_8+1)(n_4+1)$ entries each.
+Consequently its implemented space is
+$O(N(n_{16}+1)(n_8+1)(n_4+1))$. A value-only implementation could use two
+coefficient layers, but recovering the assignment also requires predecessor
+information.
+
+The time complexity is
+$O(N(n_{16}+1)(n_8+1)(n_4+1))$ as an upper bound; each reachable state has
+at most three transitions. Since $c_4=i-c_{16}-c_8$, one quota coordinate
+is redundant, so this product bound is not tight for reachable states.
 
 \textbf{Optimality.} By induction on $i$: assume
 $D[i\!-\!1]$ stores the optimal cost for each reachable quota state. At

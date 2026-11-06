@@ -36,6 +36,15 @@ width nodes (capacity 1, cost $c_{i,k}$), and each width node connected
 to a sink (capacity $n_k$, cost 0). Sending $N$ units of flow minimizes
 total cost and satisfies all quotas exactly.
 
+The LP relaxation obtained by replacing $x_{i,k}\in\{0,1\}$ with
+$x_{i,k}\geq 0$ has integral extreme points: after multiplying one
+partition of constraint rows by $-1$, its constraint matrix is a directed
+bipartite node--arc incidence matrix and is totally unimodular. Since the
+assignment and quota right-hand sides are integers, an optimal LP extreme
+point is integral. Thus the assignment formulation can also be solved as a
+linear program; the reported MILP runs are implementation-level
+cross-checks, not evidence that integrality requires branch-and-bound.
+
 \subsection{Reduction to Scalar Exact Integer Cost}
 
 Llorens et al.~\cite{llorens2005integercost} study the minimization of
@@ -54,3 +63,13 @@ The DP developed in Section~\ref{sec:algorithm} is a direct state
 encoding that tracks used quota counts rather than scalar cost; it is
 equivalent in result but distinct in state representation. Neither
 formulation constitutes a new optimization class.
+
+
+\noindent\textbf{Scope of the quotas.}\quad
+The counts constrain coefficient representations, not measured LUT,
+DSP, power, or throughput budgets. The selected 16/8/4-bit quotas are
+experimental settings; this study does not establish a product-level
+requirement for those exact counts or a fixed inventory of physical
+multipliers. Hardware synthesis may remove zero constants or map equal
+counts differently. Solving the allocation problem therefore does not
+solve the broader hardware resource--response design problem.

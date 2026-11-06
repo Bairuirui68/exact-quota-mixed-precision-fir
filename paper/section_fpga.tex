@@ -45,6 +45,16 @@ mismatches were observed. This establishes functional correctness under
 the tested operating point; it does not measure maximum frequency,
 throughput, or power.
 
+The 8-tap datapath uses signed 16-bit samples with 14 fractional bits.
+A $w$-bit signed coefficient has $w-1$ fractional bits; its $16+w$-bit
+product is sign-extended to 32 bits and left-shifted by $16-w$ to
+29 fractional bits. The three registered adder levels use 33, 34, and
+35 bits, respectively. The reference model specifies a five-cycle valid
+delay. The RTL performs no saturation or fractional rounding in this
+path; fixed-width overflow wraps. Input and coefficient quantization
+in the reference preparation uses rounding and clipping to representable
+ranges. These details concern functional validation, not measured Fmax.
+
 \subsection{Forty-Eight-Tap Filter}
 
 A 48-tap equiripple low-pass FIR (passband 0--0.3$\pi$, stopband
@@ -56,6 +66,19 @@ greedy allocation has SSE $6.6658 \times 10^{-5}$ and $-35.78$\,dB
 (fails). Two other quotas ($[16,24,8]$ and $[12,24,12]$) fail the
 stopband limit even under DP, showing that coefficient-SSE optimality
 does not guarantee spectral compliance.
+
+Quotas count the 48 coefficient positions before folding. The allocators
+do not impose paired-width constraints: for quota $[24,16,8]$, the DP
+allocation has two mirror pairs with different width labels (1/48 and
+4/45), and greedy has six (1/48, 2/47, 4/45, 5/44, 7/42, and 10/39).
+In every such pair both quantized values are zero. After fixed
+point alignment the quantized vectors are therefore exactly mirror
+symmetric (maximum mirror error zero), which is the condition used by
+the folded RTL. The RTL generator checks this before emitting the folded
+design. Each shared product uses the width and stored constant of the
+first member of the pair (positions 1--24); mismatched mirror labels
+only occur for zero values. The folded datapath uses 24 pair sums and 24 coefficient
+products; the reported quota remains the pre-fold count.
 
 Figure~\ref{fig:response48} compares the computed responses for the first
 quota. Both allocations meet the passband limit, but only DP meets the
@@ -79,6 +102,19 @@ an independent 48-term integer-convolution reference. Four
 symmetric-folded and direct-form routes were completed on the same
 XC7A35T part. Table~\ref{tab:fpga48} reports routed resources for the
 DP and greedy symmetric-folded designs.
+
+The tested RTL uses signed 16-bit input samples with 14 fractional bits
+and signed coefficient words with one sign bit and $w-1$ fractional bits.
+Folded products use a signed 17-bit pair sum. Products and every registered
+partial-sum node at tree levels 1--5 are signed 38-bit values with 29
+fractional bits; the output is the signed 38-bit value at level 5, also
+with 29 fractional bits (9 remaining sign/integer bits). Product alignment
+uses exact left shifts, with no rounding or saturation; fixed-width
+overflow wraps. The generated vectors remain within the representable
+38-bit output range. The eight registered arithmetic stages give a
+seven-edge accepted-input to valid-output difference in the testbench.
+These statements describe the tested RTL and are not a general resource
+model for arbitrary widths.
 
 \begin{table}[!t]
 \caption{Forty-eight-tap routed resources for quota $[24,16,8]$}
