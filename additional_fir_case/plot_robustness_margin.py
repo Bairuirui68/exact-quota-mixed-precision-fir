@@ -12,8 +12,8 @@ lookup = {(r['case_label'], int(r['quota_id']), r['method']): r for r in rows}
 plt.rcParams.update({'font.family':'serif', 'font.serif':['Times New Roman'],
     'font.size':8, 'mathtext.fontset':'stix', 'pdf.fonttype':42, 'svg.fonttype':'none',
     'axes.linewidth':.6})
-fig, ax = plt.subplots(figsize=(7.1,3.85))
-fig.subplots_adjust(left=.30,right=.975,bottom=.15,top=.88)
+fig, ax = plt.subplots(figsize=(7.1,2.85))
+fig.subplots_adjust(left=.30,right=.975,bottom=.19,top=.84)
 colors = {'DP':'#0072B2', 'greedy':'#D55E00'}
 markers = {'DP':'o', 'greedy':'^'}
 labels=[]; exported=[]; passes={'DP':0,'greedy':0}
@@ -50,8 +50,8 @@ ax.text(.01,1.025,'Fails stopband limit',transform=ax.transAxes,ha='left')
 ax.text(.99,1.025,'Meets limit',transform=ax.transAxes,ha='right')
 handles=[Line2D([],[],marker=markers[m],color=colors[m],ls='none',
     markerfacecolor=colors[m] if m=='DP' else 'white',label='DP' if m=='DP' else 'Greedy') for m in colors]
-fig.legend(handles=handles,loc='upper center',bbox_to_anchor=(.60,1),ncol=2,frameon=False)
-fig.text(.015,.04,'Quota: [16-bit, 8-bit, 4-bit counts].  * Passband deviation exceeds 0.25 dB.',fontsize=7.5)
+fig.legend(handles=handles,loc='upper center',bbox_to_anchor=(.60,.99),ncol=2,frameon=False)
+fig.text(.015,.025,'Quota counts are [16-bit, 8-bit, 4-bit].  * Passband deviation > 0.25 dB.',fontsize=7.5)
 out=ROOT/'paper/figures'; out.mkdir(exist_ok=True)
 for ext in ['pdf','svg','png']: fig.savefig(out/f'robustness_margin.{ext}',dpi=450)
 with (out/'robustness_margin_data.csv').open('w',newline='') as f:

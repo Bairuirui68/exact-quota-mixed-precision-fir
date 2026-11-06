@@ -62,11 +62,10 @@ E & $[16,32,16]$ & $8.68\!\cdot\!10^{-5}$ & $9.68\!\cdot\!10^{-5}$ & $-32.85$\\
 \begin{figure*}[!t]
 \centering
 \includegraphics[width=\textwidth]{figures/robustness_margin.pdf}
-\caption{All 15 design/quota combinations, using computed responses.
-Margin is the specified stopband upper limit minus the computed stopband
-peak; nonnegative values meet the stopband limit. Case B uses $-50$\,dB; all others use $-40$\,dB.
-Asterisks flag passband deviations above $0.25$\,dB. DP meets both limits
-in 2/15 combinations; greedy in 0/15. No hardware measurement is implied.}
+\caption{Computed stopband margin for all 15 design/quota combinations
+(limit minus peak; nonnegative means pass). Case B uses $-50$\,dB; others
+use $-40$\,dB. Asterisks mark passband deviations above $0.25$\,dB. DP
+meets both limits in 2/15 cases and greedy in 0/15. Responses are computed.}
 \label{fig:robust-margin}
 \end{figure*}
 
